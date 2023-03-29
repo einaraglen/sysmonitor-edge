@@ -7,8 +7,10 @@ public class DiskSpace : IJob
     {
         DriveInfo[] allDrives = DriveInfo.GetDrives();
         Dictionary<string, long[]> diskspace = new Dictionary<string, long[]>();
+        Console.WriteLine("NEW DISK MESSAGE");
         foreach (DriveInfo d in allDrives)
         {
+            Console.WriteLine($"{d.Name} {d.TotalFreeSpace} {d.TotalSize}");
             diskspace[d.Name] = new long[]{ d.TotalFreeSpace, d.TotalSize };
         }
 
